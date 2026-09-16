@@ -1,0 +1,21 @@
+name: check
+on:
+  push:
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Syntax
+        run: |
+          node --check js/app.js
+          node --check sw.js
+      - name: vercel.json
+        run: |
+          node -e "const v=require('./vercel.json'); if(v.cleanUrls!==true||v.trailingSlash!==false||Object.keys(v).length!==2) process.exit(1)"
+      - name: Craft gates
+        run: python3 scripts/check.py
