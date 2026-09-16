@@ -1,1 +1,116 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>About Us | Davey Tree</title><link rel="stylesheet" href="/styles.css"/></head><body><header class="nav"><a class="brand" href="/"><span class="brand-mark"></span> Davey Tree</a><nav class="nav-links"><a href="/residential/">Residential</a><a href="/commercial/">Commercial</a><a href="/utility/">Utility Solutions</a><a href="/environmental/">Environmental</a><a href="/about/">About</a></nav><a class="cta" href="/contact/">Contact Us Today</a></header><main class="wrap" style="padding-top:110px"><h1 class="section-title">Founded In 1880 And Employee-Owned Since 1979</h1><p class="lede">Strong brands. Engaged employees. Exceptional service.</p><h2>Our Vision</h2><p>We create and deliver sustainable solutions.</p><h2>Our Mission</h2><p>We exceed client expectations.</p><h2>Our Values</h2><div class="grid"><article class="card"><h3>Safety</h3><p>Davey goes above and beyond standard safety expectations, so it’s no surprise we’ve earned one of the top safety records in the industry.</p></article><article class="card"><h3>Integrity</h3><p>Rooted in tree care expertise since 1880, we continue to live by John Davey’s original company motto of “Do it right or not at all.”</p></article></div></main><script src="/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Davey Tree</title>
+  <meta name="description" content="Davey Tree has provided home owners and commercial companies quality tree care services since 1880. Learn more about Davey Tree services at Davey.com." />
+  <meta property="og:title" content="About Us | Davey Tree" />
+  <meta property="og:description" content="Davey Tree has provided home owners and commercial companies quality tree care services since 1880. Learn more about Davey Tree services at Davey.com." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://davey-tree-pwa.vercel.app/about" />
+  <meta property="og:image" content="https://davey-tree-pwa.vercel.app/images/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Us | Davey Tree" />
+  <meta name="twitter:description" content="Davey Tree has provided home owners and commercial companies quality tree care services since 1880. Learn more about Davey Tree services at Davey.com." />
+  <meta name="theme-color" content="#2f6b3a" />
+  <link rel="canonical" href="https://davey-tree-pwa.vercel.app/about" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+  <link rel="stylesheet" href="/css/app.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('dt-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (localStorage.getItem('dt-lang') === 'pt') document.documentElement.setAttribute('lang', 'pt');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="page">
+  <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+  <header class="nav liquid-glass">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>DAVEY TREE</a>
+    <div class="nav-end">
+      <nav class="nav-links" id="navLinks">
+        <a href="/" data-i18n="nav.home">Home</a>
+        <a href="/residential" data-i18n="nav.residential">Residential</a>
+        <a href="/commercial" data-i18n="nav.commercial">Commercial</a>
+        <a href="/utility" data-i18n="nav.utility">Utility Solutions</a>
+        <a href="/environmental" data-i18n="nav.environmental">Environmental</a>
+        <a href="/about" aria-current="page" data-i18n="nav.about">About</a>
+        <a href="/contact" data-i18n="nav.contact">Contact</a>
+        <a class="cta cta-nav" href="/contact">Contact Us Today</a>
+        <div class="nav-tools">
+          <div class="seg" role="group" aria-label="Language">
+            <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-set-lang="pt" aria-pressed="false">PT</button>
+          </div>
+          <div class="seg" role="group" aria-label="Theme">
+            <button type="button" data-set-theme="light" data-i18n="theme.light">Light</button>
+            <button type="button" data-set-theme="dark" data-i18n="theme.dark">Dark</button>
+          </div>
+        </div>
+      </nav>
+      <a class="cta cta-compact" href="/contact">Contact Us</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-inner">
+      <p class="eyebrow">About Davey</p>
+      <h1>Founded In 1880 And Employee-Owned Since 1979</h1>
+    </div>
+  </section>
+  <main class="page" id="main">
+    <section class="section">
+      <p>Strong brands. Engaged employees. Exceptional service.</p>
+      <p>With operations throughout North America, our branches have expanded, but our commitment to scientifically-based horticultural and environmental services and outstanding client service has never wavered.</p>
+      <p>Davey Tree is Ohio’s largest employee-owned company and one of the top ten largest in the nation.</p>
+      <div class="stats">
+        <div class="stat liquid-glass"><b>1880</b><span>Founded</span></div>
+        <div class="stat liquid-glass"><b>1979</b><span>Employee-owned since</span></div>
+        <div class="stat liquid-glass"><b>2018</b><span>Became a billion dollar company</span></div>
+        <div class="stat liquid-glass"><b>10,000+</b><span>Employees across North America</span></div>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <h2>Our Vision</h2>
+      <p>We create and deliver sustainable solutions.</p>
+      <h2>Our Mission</h2>
+      <p>We exceed client expectations.</p>
+      <h2>Our Values</h2>
+      <div class="grid">
+        <article class="card liquid-glass"><h3>Safety</h3><p>Davey goes above and beyond standard safety expectations, so it’s no surprise we’ve earned one of the top safety records in the industry.</p></article>
+        <article class="card liquid-glass"><h3>Integrity</h3><p>Rooted in tree care expertise since 1880, we continue to live by John Davey’s original company motto of “Do it right or not at all.”</p></article>
+        <article class="card liquid-glass"><h3>Expertise</h3><p>Davey cultivates an environment where expertise is valued, learning is constant, and professional growth is encouraged.</p></article>
+        <article class="card liquid-glass"><h3>Leadership</h3><p>Davey is proudly committed to supporting our communities where we live and work, focusing especially on trees and the environment.</p></article>
+        <article class="card liquid-glass"><h3>Stewardship</h3><p>For 140 years, Davey has been rooted in corporate responsibility—demonstrating environmental, social and economic stewardship in everything we do.</p></article>
+        <article class="card liquid-glass"><h3>Perseverance</h3><p>Our employees have consistently faced challenges head-on throughout our history with creativity, teamwork, and perseverance.</p></article>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <h2>A Company Of Employee Owners</h2>
+      <p>Davey has been an employee-owned company for over 40 years, with employee-ownership at the heart of the company culture. Davey has thrived under the employee ownership model, becoming a billion dollar company in 2018 with more than 10,000 employees contributing throughout North America.</p>
+      <h2>Join Our Team And Grow With Us!</h2>
+      <p>Looking for a rewarding career with opportunities for growth? Whether your dream office is somewhere in the great outdoors or something more traditional, we have a career path for you. We believe in providing a healthy, growing work-environment where you choose your career path and have access to constant education and the tools you need to set yourself up for continued success.</p>
+      <p>With jobs available throughout North America, Davey has an opportunity for you in the location you desire.</p>
+      <p style="margin-top:18px"><a class="cta" href="https://jobs.davey.com" rel="noopener">View Davey Careers</a></p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div>Corporate Headquarters 1500 N Mantua St. Kent, Ohio 44240</div>
+    <p class="disclaimer" data-i18n="study.disclaimer">Independent design study. Not affiliated with The Davey Tree Expert Company. Exact public marketing copy and forest-green identity from davey.com used for a Motionsites mythic-naturecore craft study only. Chrome can install this PWA from the address bar. Built by dglxss.</p>
+    <p class="byline">built by dglxss</p>
+  </footer>
+  <div class="dock liquid-glass">
+    <a class="cta" href="/contact">Request A Free Consultation</a>
+    <a class="btn-ghost" href="https://www.davey.com/local-residential-office-directory/" rel="noopener">Find A Local Office</a>
+  </div>
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,1 +1,115 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Contact Us | Davey Tree</title><link rel="stylesheet" href="/styles.css"/></head><body><header class="nav"><a class="brand" href="/"><span class="brand-mark"></span> Davey Tree</a><nav class="nav-links"><a href="/residential/">Residential</a><a href="/commercial/">Commercial</a><a href="/utility/">Utility Solutions</a><a href="/environmental/">Environmental</a><a href="/about/">About</a></nav><a class="cta" href="/contact/">Contact Us Today</a></header><main class="wrap" style="padding-top:110px"><h1 class="section-title">Speak With One Of Our Professionals</h1><p class="lede">We pride ourselves at Davey Tree on providing prompt, professional and personalized service from certified arborists that live, work and engage in your community.</p><h2>Request A Free Consultation</h2><form class="form" id="consult"><label>How would you like to be contacted?<select required><option value="">Select</option><option>Phone</option><option>Email</option></select></label><label>Service type<select required><option value="">Please choose the type of service you need</option><option>Residential</option><option>Commercial</option><option>Utility</option><option>Environmental</option></select></label><label>ZIP<input required name="zip"/></label><label>Name<input required name="name"/></label><label>Email<input required type="email" name="email"/></label><button class="cta" type="submit">Submit Request</button></form><div class="success" id="success"><h3>Request received</h3><p>Mock consultation confirmation for this independent design study. No payment processed.</p><p><a class="cta" href="/">Back to home</a></p></div><p><a href="mailto:study@example.com">mailto contact</a></p></main><script src="/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Davey Tree</title>
+  <meta name="description" content="We pride ourselves at Davey Tree on providing prompt, professional and personalized service from certified arborists that live, work and engage in your community. Contact one of our Davey Tree specialists for your residential, commercial, utility, or environmental needs." />
+  <meta property="og:title" content="Contact Us | Davey Tree" />
+  <meta property="og:description" content="We pride ourselves at Davey Tree on providing prompt, professional and personalized service from certified arborists that live, work and engage in your community. Contact one of our Davey Tree specialists for your residential, commercial, utility, or environmental needs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://davey-tree-pwa.vercel.app/contact" />
+  <meta property="og:image" content="https://davey-tree-pwa.vercel.app/images/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Us | Davey Tree" />
+  <meta name="twitter:description" content="We pride ourselves at Davey Tree on providing prompt, professional and personalized service from certified arborists that live, work and engage in your community. Contact one of our Davey Tree specialists for your residential, commercial, utility, or environmental needs." />
+  <meta name="theme-color" content="#2f6b3a" />
+  <link rel="canonical" href="https://davey-tree-pwa.vercel.app/contact" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+  <link rel="stylesheet" href="/css/app.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('dt-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (localStorage.getItem('dt-lang') === 'pt') document.documentElement.setAttribute('lang', 'pt');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="page">
+  <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+  <header class="nav liquid-glass">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>DAVEY TREE</a>
+    <div class="nav-end">
+      <nav class="nav-links" id="navLinks">
+        <a href="/" data-i18n="nav.home">Home</a>
+        <a href="/residential" data-i18n="nav.residential">Residential</a>
+        <a href="/commercial" data-i18n="nav.commercial">Commercial</a>
+        <a href="/utility" data-i18n="nav.utility">Utility Solutions</a>
+        <a href="/environmental" data-i18n="nav.environmental">Environmental</a>
+        <a href="/about" data-i18n="nav.about">About</a>
+        <a href="/contact" aria-current="page" data-i18n="nav.contact">Contact</a>
+        <a class="cta cta-nav" href="/contact">Contact Us Today</a>
+        <div class="nav-tools">
+          <div class="seg" role="group" aria-label="Language">
+            <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-set-lang="pt" aria-pressed="false">PT</button>
+          </div>
+          <div class="seg" role="group" aria-label="Theme">
+            <button type="button" data-set-theme="light" data-i18n="theme.light">Light</button>
+            <button type="button" data-set-theme="dark" data-i18n="theme.dark">Dark</button>
+          </div>
+        </div>
+      </nav>
+      <a class="cta cta-compact" href="/contact">Contact Us</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Speak With One Of Our Professionals</h1>
+    </div>
+  </section>
+  <main class="page" id="main">
+    <section class="section">
+      <p>We pride ourselves at Davey Tree on providing prompt, professional and personalized service from certified arborists that live, work and engage in your community. Contact one of our Davey Tree specialists below for your residential, commercial, utility, or environmental needs.</p>
+      <p class="notice" style="margin-top:18px">Mock consultation only. Independent design study — no request is sent to Davey Tree.</p>
+      <h2>Request A Free Consultation</h2>
+      <form class="form panel liquid-glass" id="consult">
+        <label><span data-i18n="form.contacthow">How would you like to be contacted?</span>
+          <select required>
+            <option value="">Select</option>
+            <option>Phone</option>
+            <option>Email</option>
+          </select>
+        </label>
+        <label><span data-i18n="form.service">Please choose the type of service you need</span>
+          <select required>
+            <option value="">Please choose the type of service you need</option>
+            <option>Residential</option>
+            <option>Commercial</option>
+            <option>Utility</option>
+            <option>Environmental</option>
+          </select>
+        </label>
+        <label><span data-i18n="form.zip">ZIP</span><input required name="zip" /></label>
+        <label><span data-i18n="form.name">Name</span><input required name="name" /></label>
+        <label><span data-i18n="form.email">Email</span><input required type="email" name="email" /></label>
+        <button class="cta" type="submit" data-i18n="form.submit">Submit Request</button>
+      </form>
+      <div class="success panel liquid-glass" id="success" hidden>
+        <h3>Request received</h3>
+        <p data-i18n="study.mock">Mock consultation confirmation for this independent design study. No payment processed. Built by dglxss.</p>
+        <p style="margin-top:14px"><a class="cta" href="/" data-i18n="success.back">Back to home</a></p>
+      </div>
+      <p style="margin-top:22px">Corporate Headquarters 1500 N Mantua St. Kent, Ohio 44240</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div>Corporate Headquarters 1500 N Mantua St. Kent, Ohio 44240</div>
+    <p class="disclaimer" data-i18n="study.disclaimer">Independent design study. Not affiliated with The Davey Tree Expert Company. Exact public marketing copy and forest-green identity from davey.com used for a Motionsites mythic-naturecore craft study only. Chrome can install this PWA from the address bar. Built by dglxss.</p>
+    <p class="byline">built by dglxss</p>
+  </footer>
+  <div class="dock liquid-glass">
+    <a class="cta" href="/contact">Request A Free Consultation</a>
+    <a class="btn-ghost" href="https://www.davey.com/local-residential-office-directory/" rel="noopener">Find A Local Office</a>
+  </div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
