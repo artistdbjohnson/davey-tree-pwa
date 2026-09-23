@@ -214,33 +214,64 @@ button.submit:hover { background: #479852; }
   cursor: pointer;
 }
 
+/* Pinned Ken Burns scroll-zoom. The track is one viewport plus the zoom
+   span; the forest scales on the compositor while the copy stays put. */
 .hero {
   position: relative;
-  min-height: 100svh;
+  color: #fff;
+}
+.hero-scroll {
+  --hero-zoom-span: 180vh;
+  --hero-zoom-from: 0.84746;
+  height: calc(100vh + var(--hero-zoom-span));
+}
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow: hidden;
   overflow: clip;
-  color: #fff;
   display: grid;
   align-items: end;
   isolation: isolate;
   contain: layout paint;
 }
+@supports (height: 100svh) {
+  .hero-scroll {
+    --hero-zoom-span: 180svh;
+    height: calc(100svh + var(--hero-zoom-span));
+  }
+  .hero-sticky { height: 100svh; }
+}
 .hero-photo {
   position: absolute;
   inset: -8%;
   z-index: 0;
-  width: 116%;
-  height: 116%;
-  object-fit: cover;
-  transform: scale3d(1.08, 1.08, 1);
-  transform-origin: center;
+  pointer-events: none;
+}
+.hero-media {
+  position: absolute;
+  inset: -12%;
   background:
     #102016
     center 32% / cover no-repeat
     url('/images/hero.jpg');
+  transform: scale3d(var(--hero-zoom-from), var(--hero-zoom-from), 1);
+  transform-origin: 50% 50%;
   filter: saturate(1.12) contrast(1.04) brightness(1.05);
   backface-visibility: hidden;
-  will-change: transform;
+}
+@supports (animation-timeline: scroll()) {
+  .hero-scroll.is-scroll-driven .hero-media {
+    animation: davey-zoom linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 var(--hero-zoom-span);
+    will-change: transform;
+  }
+}
+@keyframes davey-zoom {
+  from { transform: scale3d(0.84746, 0.84746, 1); }
+  to { transform: scale3d(1, 1, 1); }
 }
 .hero-grade,
 .hero-grain,
@@ -653,7 +684,21 @@ html[data-theme] .dock.liquid-glass {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-photo { transform: scale3d(1.08, 1.08, 1); will-change: auto; }
+  .hero-scroll {
+    height: auto;
+    min-height: 100svh;
+  }
+  .hero-sticky {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+  }
+  .hero-media,
+  .hero-photo {
+    animation: none !important;
+    transform: none;
+    will-change: auto;
+  }
   .card:hover { transform: none; }
   * { scroll-behavior: auto !important; }
 }
