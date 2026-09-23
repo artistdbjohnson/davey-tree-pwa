@@ -132,34 +132,64 @@
   }
 
   const bg = document.getElementById('heroBg');
-  if (bg) {
+  const world = document.getElementById('heroWorld');
+  const hero = document.getElementById('hero');
+  if (bg && world && hero) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const hero = bg.closest('.hero') || bg;
+    const ZOOM_FROM = 0.84746;
+    const ZOOM_GAIN = 1 - ZOOM_FROM;
 
+    let scrollDriven = false;
     let cx = window.innerWidth / 2;
     let cy = window.innerHeight / 2;
     let tx = 0;
     let ty = 0;
     let x = 0;
     let y = 0;
-    let scrollY = 0;
-    let targetScroll = 0;
-    let heroHeight = hero.offsetHeight || window.innerHeight || 1;
+    let progress = 0;
+    let range = 1;
     let raf = 0;
     let tabVisible = document.visibilityState === 'visible';
     let onscreen = true;
-    let lastTransform = '';
+    let lastWorld = '';
+    let lastMedia = '';
     let listening = false;
     let scrollListening = false;
+
+    function timelineSupported() {
+      return !!(window.CSS && CSS.supports && (
+        CSS.supports('animation-timeline: scroll()') ||
+        CSS.supports('animation-timeline', 'scroll()')
+      ));
+    }
 
     function motionAllowed() {
       return !reduceMotion.matches && tabVisible && onscreen;
     }
 
-    function apply(px, py, sy) {
-      const next = 'translate3d(' + px + 'px, ' + (py + sy) + 'px, 0) scale3d(1.08, 1.08, 1)';
-      if (next === lastTransform) return;
-      lastTransform = next;
+    function measure() {
+      const vh = window.innerHeight || 1;
+      range = Math.max(1, hero.offsetHeight - vh);
+    }
+
+    function readProgress() {
+      const yPos = window.scrollY || window.pageYOffset || 0;
+      if (yPos <= 0) return 0;
+      if (yPos >= range) return 1;
+      return yPos / range;
+    }
+
+    function applyWorld(px, py) {
+      const next = 'translate3d(' + px + 'px, ' + py + 'px, 0)';
+      if (next === lastWorld) return;
+      lastWorld = next;
+      world.style.transform = next;
+    }
+
+    function applyMedia(scale) {
+      const next = 'scale3d(' + scale + ', ' + scale + ', 1)';
+      if (next === lastMedia) return;
+      lastMedia = next;
       bg.style.transform = next;
     }
 
@@ -168,7 +198,8 @@
         cancelAnimationFrame(raf);
         raf = 0;
       }
-      bg.style.willChange = '';
+      world.style.willChange = '';
+      if (!scrollDriven) bg.style.willChange = '';
     }
 
     function tick() {
@@ -178,62 +209,65 @@
         return;
       }
 
-      x += (tx - x) * 0.06;
-      y += (ty - y) * 0.06;
-      scrollY += (targetScroll - scrollY) * 0.08;
+      x += (tx - x) * 0.07;
+      y += (ty - y) * 0.07;
 
       const px = Math.round(x * 100) / 100;
       const py = Math.round(y * 100) / 100;
-      const sy = Math.round(scrollY * 100) / 100;
-      apply(px, py, sy);
+      const sy = Math.round(progress * -36 * 100) / 100;
+      applyWorld(px, Math.round((py + sy) * 100) / 100);
 
-      const settled =
-        Math.abs(tx - x) < 0.05 &&
-        Math.abs(ty - y) < 0.05 &&
-        Math.abs(targetScroll - scrollY) < 0.05;
-      if (settled) {
-        x = tx;
-        y = ty;
-        scrollY = targetScroll;
-        apply(Math.round(x * 100) / 100, Math.round(y * 100) / 100, Math.round(scrollY * 100) / 100);
-        stopLoop();
+      if (!scrollDriven) {
+        const scale = Math.round((ZOOM_FROM + ZOOM_GAIN * progress) * 100000) / 100000;
+        applyMedia(scale);
+      }
+
+      if (Math.abs(tx - x) > 0.05 || Math.abs(ty - y) > 0.05) {
+        raf = requestAnimationFrame(tick);
         return;
       }
 
-      raf = requestAnimationFrame(tick);
+      x = tx;
+      y = ty;
+      applyWorld(Math.round(x * 100) / 100, Math.round((y + sy) * 100) / 100);
+      stopLoop();
     }
 
     function kick() {
       if (!motionAllowed() || raf) return;
-      bg.style.willChange = 'transform';
+      world.style.willChange = 'transform';
+      if (!scrollDriven) bg.style.willChange = 'transform';
       raf = requestAnimationFrame(tick);
     }
 
     function onMove(e) {
       if (!motionAllowed()) return;
-      tx = ((e.clientX - cx) / cx) * 18;
-      ty = ((e.clientY - cy) / cy) * 18;
+      tx = ((e.clientX - cx) / (cx || 1)) * 8;
+      ty = ((e.clientY - cy) / (cy || 1)) * 8;
       kick();
     }
 
     function onScroll() {
       if (!motionAllowed()) return;
-      const yPos = window.scrollY || window.pageYOffset || 0;
-      const p = yPos < 0 ? 0 : yPos > heroHeight ? 1 : yPos / heroHeight;
-      targetScroll = p * -36;
+      const next = readProgress();
+      if (next === progress) return;
+      progress = next;
       kick();
     }
 
     function onResize() {
       cx = window.innerWidth / 2;
       cy = window.innerHeight / 2;
-      heroHeight = hero.offsetHeight || window.innerHeight || 1;
-      if (motionAllowed()) onScroll();
+      if (!motionAllowed()) return;
+      measure();
+      progress = readProgress();
+      kick();
     }
 
     function onVisibility() {
       tabVisible = document.visibilityState === 'visible';
       if (!tabVisible) stopLoop();
+      else if (motionAllowed()) kick();
     }
 
     function bindMove() {
@@ -260,23 +294,37 @@
       scrollListening = false;
     }
 
+    function clearMotion() {
+      tx = 0;
+      ty = 0;
+      x = 0;
+      y = 0;
+      progress = 0;
+      lastWorld = '';
+      lastMedia = '';
+      world.style.transform = '';
+      bg.style.transform = '';
+    }
+
     function syncMotionPreference() {
+      scrollDriven = !reduceMotion.matches && timelineSupported();
+      hero.classList.toggle('is-scroll-driven', scrollDriven);
       if (reduceMotion.matches) {
         unbindMove();
         unbindScroll();
         stopLoop();
-        tx = 0;
-        ty = 0;
-        x = 0;
-        y = 0;
-        scrollY = 0;
-        targetScroll = 0;
-        apply(0, 0, 0);
+        clearMotion();
         return;
       }
+      if (scrollDriven) {
+        lastMedia = '';
+        bg.style.transform = '';
+      }
+      measure();
+      progress = readProgress();
       bindMove();
       bindScroll();
-      onScroll();
+      kick();
     }
 
     function onMq(mq, fn) {
@@ -292,6 +340,7 @@
       const io = new IntersectionObserver(function (entries) {
         onscreen = entries.some(function (entry) { return entry.isIntersecting; });
         if (!onscreen) stopLoop();
+        else if (motionAllowed()) kick();
       }, { threshold: 0 });
       io.observe(hero);
     }
