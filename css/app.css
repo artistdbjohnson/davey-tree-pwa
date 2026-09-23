@@ -235,7 +235,7 @@ button.submit:hover { background: #479852; }
   transform-origin: center;
   background:
     #102016
-    center 46% / cover no-repeat
+    center 32% / cover no-repeat
     url('/images/hero.jpg');
   filter: saturate(1.12) contrast(1.04) brightness(1.05);
   backface-visibility: hidden;
@@ -401,7 +401,9 @@ html[data-theme="dark"] .panel {
 }
 .card-plate,
 .card-hero img {
-  height: 188px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-position: center 30%;
 }
 .card-hero { display: block; text-decoration: none; color: inherit; }
 .card-copy { padding: 16px 16px 18px; }
