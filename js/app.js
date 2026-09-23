@@ -299,6 +299,67 @@
     syncMotionPreference();
   }
 
+  var LANDING_AIR = 14;
+
+  function headerClearance() {
+    var header = document.querySelector('header.nav');
+    if (!(header instanceof HTMLElement)) return 96;
+    return Math.round(header.getBoundingClientRect().bottom + LANDING_AIR);
+  }
+
+  function syncStickyNavHeight() {
+    document.documentElement.style.setProperty('--sticky-nav-height', headerClearance() + 'px');
+  }
+
+  function scrollToId(id, behavior) {
+    if (!id || id === 'top') {
+      window.scrollTo({ top: 0, behavior: behavior });
+      return true;
+    }
+    var node = document.getElementById(id);
+    if (!node) return false;
+    syncStickyNavHeight();
+    var top = window.scrollY + node.getBoundingClientRect().top - headerClearance();
+    window.scrollTo({ top: Math.max(0, top), behavior: behavior });
+    return true;
+  }
+
+  function reducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var link = e.target.closest('a[href]');
+    if (!link || link.target === '_blank') return;
+    var url;
+    try { url = new URL(link.getAttribute('href'), window.location.href); }
+    catch (err) { return; }
+    if (!url.hash) return;
+    var here = window.location.pathname.replace(/\/$/, '') || '/';
+    var there = url.pathname.replace(/\/$/, '') || '/';
+    if (here !== there || url.origin !== window.location.origin) return;
+    var id = decodeURIComponent(url.hash.slice(1));
+    if (id !== 'top' && !document.getElementById(id)) return;
+    e.preventDefault();
+    scrollToId(id, reducedMotion() ? 'auto' : 'smooth');
+    if (window.history && history.pushState) history.pushState(null, '', '#' + id);
+  });
+
+  function landHash() {
+    if (!window.location.hash) return;
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    scrollToId(id, 'auto');
+  }
+
+  syncStickyNavHeight();
+  window.addEventListener('resize', syncStickyNavHeight, { passive: true });
+  window.addEventListener('load', function () {
+    syncStickyNavHeight();
+    landHash();
+  });
+  landHash();
+
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('/sw.js').catch(function () {});

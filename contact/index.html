@@ -33,7 +33,7 @@
 <body class="page">
   <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
   <header class="nav liquid-glass">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>DAVEY TREE</a>
+    <a class="brand" href="/" aria-label="Davey Tree"><img class="brand-logo" src="/images/brand/davey-tree-logo-white.svg" alt="Davey Tree" width="130" height="46" /></a>
     <div class="nav-end">
       <nav class="nav-links" id="navLinks">
         <a href="/" data-i18n="nav.home">Home</a>
@@ -59,7 +59,7 @@
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
     </div>
   </header>
-  <section class="page-hero">
+  <section class="page-hero" style="--hero-plate: url('/images/plates/contact-consult.jpg')">
     <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-inner">
       <p class="eyebrow">Contact</p>
@@ -71,7 +71,9 @@
       <p>We pride ourselves at Davey Tree on providing prompt, professional and personalized service from certified arborists that live, work and engage in your community. Contact one of our Davey Tree specialists below for your residential, commercial, utility, or environmental needs.</p>
       <p class="notice" style="margin-top:18px">Mock consultation only. Independent design study — no request is sent to Davey Tree.</p>
       <h2>Request A Free Consultation</h2>
-      <form class="form panel liquid-glass" id="consult">
+      <div class="split">
+      <div>
+      <form class="form panel" id="consult">
         <label><span data-i18n="form.contacthow">How would you like to be contacted?</span>
           <select required>
             <option value="">Select</option>
@@ -93,10 +95,15 @@
         <label><span data-i18n="form.email">Email</span><input required type="email" name="email" /></label>
         <button class="cta" type="submit" data-i18n="form.submit">Submit Request</button>
       </form>
-      <div class="success panel liquid-glass" id="success" hidden>
+      <div class="success panel" id="success" hidden>
         <h3>Request received</h3>
         <p data-i18n="study.mock">Mock consultation confirmation for this independent design study. No payment processed. Built by dglxss.</p>
         <p style="margin-top:14px"><a class="cta" href="/" data-i18n="success.back">Back to home</a></p>
+      </div>
+      </div>
+      <figure class="contact-plate">
+        <img src="/images/plates/contact-consult.jpg" alt="An arborist consultation beneath a front-yard tree" />
+      </figure>
       </div>
       <p style="margin-top:22px">Corporate Headquarters 1500 N Mantua St. Kent, Ohio 44240</p>
     </section>
