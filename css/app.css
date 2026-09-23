@@ -394,7 +394,8 @@ html[data-theme="dark"] .panel {
 .card-plate,
 .card-hero img,
 .service-links img,
-.contact-plate img {
+.contact-plate img,
+.heritage-plate img {
   display: block;
   width: 100%;
   object-fit: cover;
@@ -529,7 +530,7 @@ form.panel,
   inset: 0;
   background:
     linear-gradient(180deg, rgba(4, 12, 8, 0.16), rgba(4, 12, 8, 0.62)) center / cover no-repeat,
-    var(--hero-plate, url('/images/hero.jpg')) center / cover no-repeat;
+    var(--hero-plate, url('/images/hero.jpg')) center 32% / cover no-repeat;
 }
 .page-hero-inner {
   position: relative;
@@ -584,15 +585,20 @@ input, select, textarea {
   --glass-border: rgba(255, 255, 255, 0.16);
 }
 
-.contact-plate {
+.contact-plate,
+.heritage-plate {
   margin: 0;
   border-radius: var(--r);
   overflow: hidden;
   min-height: 280px;
 }
-.contact-plate img {
+.heritage-plate { margin: 22px 0 4px; }
+.contact-plate img,
+.heritage-plate img {
   height: 100%;
   min-height: 320px;
+  aspect-ratio: 4 / 3;
+  object-position: center 30%;
 }
 
 @media (min-width: 821px) {
