@@ -1,4 +1,4 @@
-const CACHE = 'davey-study-v3';
+const CACHE = 'davey-study-v4';
 const SHELL = [
   '/',
   '/index.html',

@@ -34,7 +34,7 @@
 <body>
   <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
   <header class="nav liquid-glass">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>DAVEY TREE</a>
+    <a class="brand" href="/" aria-label="Davey Tree"><img class="brand-logo" src="/images/brand/davey-tree-logo-white.svg" alt="Davey Tree" width="130" height="46" /></a>
     <div class="nav-end">
       <nav class="nav-links" id="navLinks">
         <a href="/" aria-current="page" data-i18n="nav.home">Home</a>
@@ -87,66 +87,78 @@
       <p>With operations throughout North America, our branches have expanded, but our commitment to scientifically-based horticultural and environmental services and outstanding client service has never wavered.</p>
       <p>Davey Tree is Ohio’s largest employee-owned company and one of the top ten largest in the nation.</p>
       <div class="stats">
-        <div class="stat liquid-glass"><b>1880</b><span>Founded</span></div>
-        <div class="stat liquid-glass"><b>1979</b><span>Employee-owned since</span></div>
-        <div class="stat liquid-glass"><b>47</b><span>States with residential offices</span></div>
-        <div class="stat liquid-glass"><b>10,000+</b><span>Employee-owners across North America</span></div>
+        <div class="stat"><b>1880</b><span>Founded</span></div>
+        <div class="stat"><b>1979</b><span>Employee-owned since</span></div>
+        <div class="stat"><b>47</b><span>States with residential offices</span></div>
+        <div class="stat"><b>10,000+</b><span>Employee-owners across North America</span></div>
       </div>
     </section>
-    <section class="section band">
+    <section class="section" id="services">
       <p class="kicker">Services</p>
       <h2>Our Services &amp; Certified Team Of Professionals</h2>
-      <div class="grid">
-        <article class="card liquid-glass">
-          <h3>Residential</h3>
-          <ul>
-            <li>Tree Health Inspection &amp; Treatment</li>
-            <li>Tree Removal</li>
-            <li>Tree Trimming &amp; Pruning</li>
-            <li>Tree Planting &amp; Transplanting</li>
-            <li>Tree &amp; Shrub Fertilization</li>
-            <li>Storm Prep &amp; Support Systems for Trees</li>
-            <li>Lawn Care Services</li>
-          </ul>
-          <a class="more" href="/residential">Residential Services</a>
+      <div class="grid services">
+        <article class="card" id="residential">
+          <a class="card-hero" href="/residential"><img src="/images/plates/hero-residential.jpg" alt="Mature oaks along a residential street at late summer" /></a>
+          <div class="card-copy">
+            <h3>Residential</h3>
+            <ul class="service-links">
+              <li><a href="/residential#tree-health"><img src="/images/plates/res-health.jpg" alt="" />Tree Health Inspection &amp; Treatment</a></li>
+              <li><a href="/residential#tree-removal"><img src="/images/plates/res-removal.jpg" alt="" />Tree Removal</a></li>
+              <li><a href="/residential#tree-trimming"><img src="/images/plates/res-pruning.jpg" alt="" />Tree Trimming &amp; Pruning</a></li>
+              <li><a href="/residential#tree-planting"><img src="/images/plates/res-planting.jpg" alt="" />Tree Planting &amp; Transplanting</a></li>
+              <li><a href="/residential#fertilization"><img src="/images/plates/res-fertilizer.jpg" alt="" />Tree &amp; Shrub Fertilization</a></li>
+              <li><a href="/residential#storm-prep"><img src="/images/plates/res-storm.jpg" alt="" />Storm Prep &amp; Support Systems for Trees</a></li>
+              <li><a href="/residential#lawn-care"><img src="/images/plates/res-lawn.jpg" alt="" />Lawn Care Services</a></li>
+            </ul>
+            <a class="more" href="/residential">Residential Services</a>
+          </div>
         </article>
-        <article class="card liquid-glass">
-          <h3>Commercial</h3>
-          <ul>
-            <li>Commercial Grounds Maintenance</li>
-            <li>Water Management</li>
-            <li>Landscape Enhancements</li>
-            <li>Commercial Tree Care Solutions</li>
-            <li>Commercial Snow Removal</li>
-            <li>Golf Course Solutions</li>
-          </ul>
-          <a class="more" href="/commercial">Commercial Services</a>
+        <article class="card" id="commercial">
+          <a class="card-hero" href="/commercial"><img src="/images/plates/hero-commercial.jpg" alt="A corporate lawn and allée of shade trees" /></a>
+          <div class="card-copy">
+            <h3>Commercial</h3>
+            <ul class="service-links">
+              <li><a href="/commercial#grounds"><img src="/images/plates/com-grounds.jpg" alt="" />Commercial Grounds Maintenance</a></li>
+              <li><a href="/commercial#water"><img src="/images/plates/com-water.jpg" alt="" />Water Management</a></li>
+              <li><a href="/commercial#landscape"><img src="/images/plates/com-landscape.jpg" alt="" />Landscape Enhancements</a></li>
+              <li><a href="/commercial#tree-care"><img src="/images/plates/com-trees.jpg" alt="" />Commercial Tree Care Solutions</a></li>
+              <li><a href="/commercial#snow"><img src="/images/plates/com-snow.jpg" alt="" />Commercial Snow Removal</a></li>
+              <li><a href="/commercial#golf"><img src="/images/plates/com-golf.jpg" alt="" />Golf Course Solutions</a></li>
+            </ul>
+            <a class="more" href="/commercial">Commercial Services</a>
+          </div>
         </article>
-        <article class="card liquid-glass">
-          <h3>Utility Solutions</h3>
-          <ul>
-            <li>Vegetation Management Consulting</li>
-            <li>Asset Management Consulting</li>
-            <li>Environmental Consulting Services</li>
-            <li>Storm Response &amp; Natural Disaster Recovery</li>
-            <li>Utility Line Clearance</li>
-            <li>Communications Construction</li>
-            <li>Technology and Software Solutions</li>
-          </ul>
-          <a class="more" href="/utility">Visit Utility Solutions</a>
+        <article class="card" id="utility">
+          <a class="card-hero" href="/utility"><img src="/images/plates/hero-utility.jpg" alt="A misty utility corridor through forest" /></a>
+          <div class="card-copy">
+            <h3>Utility Solutions</h3>
+            <ul class="service-links">
+              <li><a href="/utility#vegetation"><img src="/images/plates/util-veg.jpg" alt="" />Vegetation Management Consulting</a></li>
+              <li><a href="/utility#assets"><img src="/images/plates/util-asset.jpg" alt="" />Asset Management Consulting</a></li>
+              <li><a href="/utility#utility-environment"><img src="/images/plates/util-env.jpg" alt="" />Environmental Consulting Services</a></li>
+              <li><a href="/utility#storm-response"><img src="/images/plates/util-storm.jpg" alt="" />Storm Response &amp; Natural Disaster Recovery</a></li>
+              <li><a href="/utility#line-clearance"><img src="/images/plates/util-line.jpg" alt="" />Utility Line Clearance</a></li>
+              <li><a href="/utility#communications"><img src="/images/plates/util-comms.jpg" alt="" />Communications Construction</a></li>
+              <li><a href="/utility#technology"><img src="/images/plates/util-tech.jpg" alt="" />Technology and Software Solutions</a></li>
+            </ul>
+            <a class="more" href="/utility">Visit Utility Solutions</a>
+          </div>
         </article>
-        <article class="card liquid-glass">
-          <h3>Environmental</h3>
-          <ul>
-            <li>Wetlands &amp; Streams</li>
-            <li>Environmental Design &amp; Ecosystem Restoration</li>
-            <li>Stormwater Management &amp; Compliance</li>
-            <li>Urban &amp; Community Forestry</li>
-            <li>TreeKeeper Inventory Management Software</li>
-            <li>Civil Engineering &amp; Surveying</li>
-            <li>Landscape Architecture &amp; Ecological Design</li>
-          </ul>
-          <a class="more" href="/environmental">Visit Environmental Consulting</a>
+        <article class="card" id="environmental">
+          <a class="card-hero" href="/environmental"><img src="/images/plates/hero-environmental.jpg" alt="A restored wetland at sunrise" /></a>
+          <div class="card-copy">
+            <h3>Environmental</h3>
+            <ul class="service-links">
+              <li><a href="/environmental#wetlands"><img src="/images/plates/env-wetland.jpg" alt="" />Wetlands &amp; Streams</a></li>
+              <li><a href="/environmental#restoration"><img src="/images/plates/env-restore.jpg" alt="" />Environmental Design &amp; Ecosystem Restoration</a></li>
+              <li><a href="/environmental#stormwater"><img src="/images/plates/env-stormwater.jpg" alt="" />Stormwater Management &amp; Compliance</a></li>
+              <li><a href="/environmental#urban-forestry"><img src="/images/plates/env-urban.jpg" alt="" />Urban &amp; Community Forestry</a></li>
+              <li><a href="/environmental#treekeeper"><img src="/images/plates/env-inventory.jpg" alt="" />TreeKeeper Inventory Management Software</a></li>
+              <li><a href="/environmental#civil"><img src="/images/plates/env-civil.jpg" alt="" />Civil Engineering &amp; Surveying</a></li>
+              <li><a href="/environmental#ecological-design"><img src="/images/plates/env-landscape.jpg" alt="" />Landscape Architecture &amp; Ecological Design</a></li>
+            </ul>
+            <a class="more" href="/environmental">Visit Environmental Consulting</a>
+          </div>
         </article>
       </div>
     </section>
@@ -164,10 +176,13 @@
           <p>We pride ourselves at Davey Tree on providing prompt, professional and personalized service from certified arborists that live, work and engage in your community. Contact one of our Davey Tree specialists for your residential, commercial, utility, or environmental needs.</p>
           <p>Corporate Headquarters 1500 N Mantua St. Kent, Ohio 44240</p>
         </div>
-        <aside class="panel liquid-glass">
-          <p class="kicker">Request A Free Consultation</p>
-          <p>Find a local office near you to schedule a free tree consultation today.</p>
-          <a class="cta" href="/contact">Contact Us Today</a>
+        <aside class="panel">
+          <img class="card-plate" src="/images/plates/hero-contact.jpg" alt="An arborist meeting a client beneath a front-yard maple" />
+          <div class="card-copy">
+            <p class="kicker">Request A Free Consultation</p>
+            <p>Find a local office near you to schedule a free tree consultation today.</p>
+            <a class="cta" href="/contact">Contact Us Today</a>
+          </div>
         </aside>
       </div>
     </section>
