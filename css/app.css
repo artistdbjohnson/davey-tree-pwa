@@ -79,20 +79,21 @@ button, input, select, textarea { font: inherit; }
 }
 .skip:focus { top: 12px; }
 
+/* Matte plates. Replaces the shared September PWA frost
+   (blur 18px, saturate 1.45, luminosity) so cards are solid. */
 .liquid-glass {
-  background: var(--glass);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(18px) saturate(1.45);
-  -webkit-backdrop-filter: blur(18px) saturate(1.45);
-  border: 1px solid var(--glass-border);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.42),
-    0 12px 36px rgba(4, 16, 10, 0.1);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+html[data-theme="dark"] .liquid-glass {
+  background: #121a16;
 }
 
-.nav.liquid-glass {
-  --glass: rgba(8, 16, 12, 0.42);
-  --glass-border: rgba(255, 255, 255, 0.16);
+.nav.liquid-glass,
+html[data-theme] .nav.liquid-glass {
+  background: #1b4d2e;
+  border-color: rgba(255, 255, 255, 0.16);
   color: #fff;
 }
 
@@ -310,11 +311,14 @@ h1 {
   padding: 0;
   margin: 28px 0 0;
 }
-.trust-row li {
+.trust-row li,
+.trust-row .liquid-glass,
+html[data-theme] .trust-row .liquid-glass {
   padding: 14px 14px 13px;
   border-radius: var(--r);
   color: #fff;
-  background: rgba(7, 16, 12, 0.66);
+  background: #102016;
+  border-color: rgba(255, 255, 255, 0.18);
 }
 .trust-row b {
   display: block;
@@ -377,7 +381,7 @@ h1 {
   padding: 0;
   overflow: hidden;
   color: var(--ink);
-  background: #fbf8f2;
+  background: #fff;
   border: 1px solid rgba(20, 24, 22, 0.08);
   box-shadow: 0 16px 36px rgba(8, 16, 12, 0.07);
   transition: transform var(--t) var(--ease), border-color var(--t) var(--ease);
@@ -465,7 +469,7 @@ html[data-theme="dark"] .panel {
   border-radius: var(--r);
   padding: 18px 16px;
   color: var(--ink);
-  background: #fbf8f2;
+  background: #fff;
   border: 1px solid rgba(20, 24, 22, 0.08);
 }
 .stat b {
@@ -489,7 +493,7 @@ html[data-theme="dark"] .panel {
   padding: 7px 10px;
   border-radius: var(--r-sm);
   font-size: 13px;
-  background: #fbf8f2;
+  background: #fff;
   border: 1px solid rgba(20, 24, 22, 0.1);
   color: var(--ink);
 }
@@ -508,7 +512,7 @@ html[data-theme="dark"] .chips li {
   border-radius: var(--r);
   padding: 0;
   overflow: hidden;
-  background: #fbf8f2;
+  background: #fff;
   border: 1px solid rgba(20, 24, 22, 0.08);
   color: var(--ink);
 }
@@ -580,9 +584,10 @@ input, select, textarea {
 }
 
 .dock { display: none; }
-.dock.liquid-glass {
-  --glass: rgba(8, 16, 12, 0.58);
-  --glass-border: rgba(255, 255, 255, 0.16);
+.dock.liquid-glass,
+html[data-theme] .dock.liquid-glass {
+  background: #1b4d2e;
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .contact-plate,
@@ -623,10 +628,8 @@ input, select, textarea {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
-    background: rgba(8, 16, 12, 0.78);
+    background: #1b4d2e;
     border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(18px) saturate(1.4);
-    -webkit-backdrop-filter: blur(18px) saturate(1.4);
   }
   .nav-links.is-open { display: flex; }
   .nav-tools { justify-content: space-between; }
